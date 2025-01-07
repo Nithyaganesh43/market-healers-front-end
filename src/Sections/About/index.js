@@ -1,6 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import wave from "../../assets/waves.svg"; 
-import human from "../../assets/human.svg"; 
+import wave from "../../assets/waves.svg";  
 
 const move = keyframes`
 0% { transform: translateY(-5px)         }
@@ -75,16 +74,7 @@ const Rocket = styled.div`
   }
 `;
 
-const Human = styled.div`
-  width: 50%;
-  position: absolute;
-  right: 0;
-  bottom: 100%;
-
-  @media only Screen and (max-width: 40em) {
-    display: none;
-  }
-`;
+ 
 const Text = styled.h4`
   font-size: calc(0.5rem + 1vw);
   line-height: 1.5;

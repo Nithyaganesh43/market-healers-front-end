@@ -1,7 +1,7 @@
 // This is HeroSection component, Main top section of website
 
-import styled, { keyframes } from "styled-components";
- 
+import styled, { keyframes } from 'styled-components';
+
 const move = keyframes`
 0% { transform: translateY(-5px)  }
     50% { transform: translateY(10px) }
@@ -24,7 +24,6 @@ const HomeSection = styled.section`
     padding-bottom: 2rem;
   }
 `;
- 
 
 const MainContent = styled.div`
   display: flex;
@@ -78,38 +77,37 @@ const Lb = styled.div`
     filter: none;
   }
 `;
- 
 
 const Title = styled.h1`
-  font-size: calc(3rem + 2vw);
+  font-size: calc(2.5rem + 2vw);
   line-height: 1.2;
   padding: 0.5rem 0;
 `;
 
 const SubText = styled.h5`
-  font-size: calc(0.5rem + 0.5vw);
-  color:rgb(207, 207, 207);
-  
+  font-size: calc(1rem + 0.5vw);
+  color: rgb(207, 207, 207);
 `;
 
 const CTA = styled.button`
   background-color: var(--white);
   color: #0a0b10;
   padding: 0.5rem 1rem;
-  margin-top: 1rem;
+  margin-top: 1em;
   border-radius: 20px;
   cursor: pointer;
-  font-size: calc(0.5rem + 0.5vw);
+  font-size: calc(1.5rem + 0.8vw);
   font-weight: 700;
   display: flex;
   align-items: center;
   transition: transform 0.2s;
 
   img {
-    width: 1.5rem;
+  
+    width: 2rem;
   }
   @media only screen and (max-width: 48em) {
-    padding: 0.2rem 1rem;
+    padding: 0.6rem 1rem;
   }
   &:hover {
     transform: scale(1.1);
@@ -119,7 +117,11 @@ const CTA = styled.button`
   }
 `;
 
-const HeroSection = () => {
+const HeroSection = () => { const handleClick = () => {
+  window.location.href =
+    'https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s';
+};
+
   return (
     <HomeSection id="home">
       <MainContent id="home">
@@ -129,18 +131,21 @@ const HeroSection = () => {
             We're Here to Guide You Toward Smart Investment Choices
           </SubText>
           <CTA>
-            <a href="https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s">
-              {' '}
-              Join Us{' '}
-            </a>
-            <img
-              src={
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLTkzAdnWhTwT7OqlhAS5fbW9LOKyHbLzoEQ&s'
-              }
-              alt="cta"
-              width="100"
-              height="100"
-            />
+            <div  onClick={handleClick} style={{ cursor: 'pointer' }}>
+              Join Us
+              <img
+                src={
+                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLTkzAdnWhTwT7OqlhAS5fbW9LOKyHbLzoEQ&s'
+                }
+                alt="cta"
+                width="100"
+                height="100"
+              />
+            </div>
+            {document.getElementById('btn')?.addEventListener('click', () => {
+              window.location.href =
+                'https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s';
+            })}
           </CTA>
         </Lb>
 
