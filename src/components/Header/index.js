@@ -35,21 +35,24 @@ const Logo = styled.a`
     width: 3rem;
     height: 3rem;
   }
-    @media only Screen and (max-width: 48em) {
-  img {
-    border-radius: 40%;
-    margin-bottom: 0rem;
-    width: 2rem;
-    height: 2rem;
-  }
-  }
   h3 {
     margin: 0px 10px;
     text-align: center;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: bold;
     line-height: 1.2rem;
-    color :rgb(243, 241, 224); 
+    color: rgb(255, 248, 239);
+  }
+  @media only Screen and (max-width: 48em) {
+    img {
+      border-radius: 40%;
+      margin-bottom: 0rem;
+      width: 2rem;
+      height: 2rem;
+    }
+    h3 {
+      font-size: 1.2rem;
+    }
   }
 `;
 
