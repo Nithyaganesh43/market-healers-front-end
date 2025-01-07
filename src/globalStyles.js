@@ -20,7 +20,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Poppins', sans-serif;
 }
 html{
-  ${"" /* overflow-y: scroll; */}
   scroll-behavior:smooth;
   
 }

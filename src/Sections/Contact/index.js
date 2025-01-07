@@ -1,8 +1,6 @@
-import Facebook from "../../assets/facebook-square-brands.svg";
-import LinkedId from "../../assets/linkedin-brands.svg";
-import Twitter from "../../assets/twitter-square-brands.svg";
-import Instagram from "../../assets/instagram-square-brands.svg";
-import styled from "styled-components";
+ 
+ 
+import styled from 'styled-components';
 
 const ContactSection = styled.section`
   width: 100vw;
@@ -22,7 +20,7 @@ const Title = styled.h1`
   margin-bottom: 3rem;
   position: relative;
   &::before {
-    content: "";
+    content: '';
     height: 1px;
     width: 50%;
     position: absolute;
@@ -36,11 +34,12 @@ const Title = styled.h1`
 
 const Icons = styled.div`
   display: flex;
+  cursor: pointer;
   margin-bottom: 3rem;
   a {
     &:hover {
       img {
-        filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(580deg)
+        filter: invert(20%) sepia(100%) saturate(500%) hue-rotate(570deg)
           brightness(100%) contrast(97%);
       }
     }
@@ -75,7 +74,7 @@ const Form = styled.form`
       color: #eff7f8;
       opacity: 0.6;
     }
-    &[name="name"] {
+    &[name='name'] {
       margin-right: 2rem;
     }
   }
@@ -118,54 +117,70 @@ const Row = styled.div`
     display: flex;
     flex-direction: column;
     input {
-      &[name="name"] {
+      &[name='name'] {
         margin-right: 0;
       }
     }
   }
 `;
-const Contact = () => {
+const Contact = () => {  
   return (
     <ContactSection id="contact">
       <Title>Get in touch</Title>
-      {/* <Text>Lorem ipsum dolor sit amet, consectetur adipisicing.</Text> */}
       <Icons>
-        <a href="https://www.facebook.com/">
-          {" "}
-          <img src={Facebook} alt="Facebook" />
+        <a
+          href="https://www.linkedin.com/in/market-healers-66a343344/"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            alt="LinkedIn"
+          />
         </a>
-        <a href="https://www.linkedin.com//">
-          <img src={LinkedId} alt="LinkedId" />
+        <a
+          href="https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+            alt="WhatsApp"
+          />
         </a>
-        <a href="https://twitter.com/">
-          <img src={Twitter} alt="Twitter" />
-        </a>
-        <a href="https://www.instagram.com/">
-          <img src={Instagram} alt="Instagram" />
+        <a
+          href="https://www.instagram.com/market.healers/"
+          target="_blank"
+          rel="noopener noreferrer">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"
+            alt="Instagram"
+          />
         </a>
       </Icons>
       <Form>
         <Row>
-          <input name="name" type="text" placeholder="your name" />
+          <input id={'name'} name="name" type="text" placeholder="your name" />
           <input
+            id={'email'}
             name="email"
             type="email"
-            placeholder="enter working email id"
+            placeholder="enter email id"
           />
         </Row>
         <textarea
           name=""
-          id=""
+          id="text"
           cols="30"
           rows="2"
-          placeholder="your message"
-        ></textarea>
-        <div style={{ margin: "0 auto" }}>
+          placeholder="your message"></textarea>
+        <div style={{ margin: '0 auto' }}>
           <button
             onClick={(e) => {
+              document.getElementById('email').value = '';
+              document.getElementById('name').value = '';
+              document.getElementById('text').value = '';
+               
               e.preventDefault();
-            }}
-          >
+            }}>
             Submit
           </button>
         </div>

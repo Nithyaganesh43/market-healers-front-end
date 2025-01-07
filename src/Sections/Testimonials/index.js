@@ -69,42 +69,42 @@ const Carousal = styled.div`
 `;
 
 const Testimonials = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-
+   const settings = {
+     dots: true,
+     infinite: true,
+     speed: 2000,
+     slidesToShow: 1,
+     slidesToScroll: 1,
+     autoplay: true,
+     autoplaySpeed: 7000,  
+   };
   return (
     <Section>
-      <Title>Few good words about us!</Title>
+      <Title>Words that inspire and guide.</Title>
       <Carousal>
         <Slider {...settings}>
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly
-        recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="If you don't find a way to make money while you sleep, you will work until you die."
+            name="Warren Buffett(Sage of Omaha)"
+             
             image="avatar-1"
           />
 
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="When something is important enough, you do it even if the odds are not in your favor."
+            name="Elon Musk(SpaceX)"
             image="avatar-2"
           />
 
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="Success is a new chapter after failure"
+            name="Harshad mehta (big bull)"
             image="avatar-3"
           />
 
           <Card
-            text="CodeBucks has been essential part of our business. I would definetly recommend CodeBucks. It has been amazing to have them."
-            name="Jenny (CodeCall)"
+            text="Compound interest is the eighth wonder of the world. He who understands it, earns it … he who doesn't … pays it."
+            name="Albert Einstein (Genius)"
             image="avatar-4"
           />
         </Slider>

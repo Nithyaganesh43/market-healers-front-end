@@ -22,15 +22,7 @@ const Waves = styled.img`
   position: absolute;
   top: -1rem;
 `;
-const Hand = styled.div`
-  position: absolute;
-  bottom: -1rem;
-  right: 0;
-
-  @media only Screen and (max-width: 40em) {
-    display: none;
-  }
-`;
+ 
 
 const Main = styled.div`
   margin: 0 15rem;
@@ -74,7 +66,7 @@ const Rocket = styled.div`
   display: flex;
   justify-content: center;
   align-content: center;
-  width: 40%;
+  width: 100%;
   padding-bottom: 5rem;
   animation: ${move} 2.5s ease infinite;
   @media only Screen and (max-width: 40em) {
@@ -97,7 +89,9 @@ const Text = styled.h4`
   font-size: calc(0.5rem + 1vw);
   line-height: 1.5;
   color: var(--nav2);
+  text-align: justify;
 `;
+
 const Circle = styled.span`
   display: inline-block;
   width: 1rem;
@@ -108,10 +102,13 @@ const Circle = styled.span`
   margin-top: 1rem;
 `;
 const AboutText = styled.div`
-  width: 50%;
+  width: 200%;
+  left: 10%;
   position: relative;
   @media only Screen and (max-width: 40em) {
     width: 100%;
+    left: 0;
+    margin-top: 20px;
   }
 `;
 
@@ -119,31 +116,49 @@ const About = () => {
   return (
     <AboutSection id="about">
       <Waves src={wave} alt="" />
-     
+
       <Main>
-        <div>
-          <Title>About Us</Title>
-          <CurvedLine />
-        </div>
+        <div></div>
         <Content>
           <Rocket>
-            <img src={"https://www.motosha.com/files/preview/1280x720/15080-profit-and-loss-arrow-isolated-on-white-background-3d-illustration.jpg"} alt="" width="400" height="400" />
+            <img
+              src={
+                'https://res.cloudinary.com/dptf0mrro/image/upload/v1736267633/Add_a_heading-removebg-preview_slq8qh.png'
+              }
+              alt=""
+              width="400"
+              height="400"
+            />
           </Rocket>
           <AboutText>
-            <Human>
-              <img src={human} alt="" width="400" height="400" />
-            </Human>
-
+            <Title>About Us</Title>
+            <CurvedLine />
             <Text>
-              We help our customers to tell about themselves, to grow and stand
-              out in an increasingly competitive digital world, through creative
-              projects that are able to attract and involve, creating strategic
-              value.
+              Welcome to Market Healers, where we turn the mystery of the stock
+              market into a powerful tool for your financial freedom. Founded in
+              2024, our mission is simple: to help you understand the stock
+              market and make smarter, more confident financial decisions.
+            </Text>
+            <br></br>
+            <Title>Mission</Title>
+            <Text>
+              <CurvedLine />
+              We’re here to guide you on your journey to financial independence,
+              teaching you how to make informed decisions that will shape your
+              future.
+            </Text>
+            <br></br>
+            <Title>Vision</Title>
+            <CurvedLine />
+            <Text>
+              Our vision is to build the largest community in India of
+              individuals who are not just financially independent, but
+              financially empowered.
             </Text>
             <div>
-              <Circle style={{ backgroundColor: "var(--purple)" }} />
-              <Circle style={{ backgroundColor: "var(--pink)" }} />
-              <Circle style={{ backgroundColor: "var(--black)" }} />
+              <Circle style={{ backgroundColor: 'var(--black)' }} />
+              <Circle style={{ backgroundColor: 'var(--black)' }} />
+              <Circle style={{ backgroundColor: 'var(--black)' }} />
             </div>
           </AboutText>
         </Content>

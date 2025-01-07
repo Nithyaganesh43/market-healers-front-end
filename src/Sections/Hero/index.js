@@ -1,13 +1,7 @@
 // This is HeroSection component, Main top section of website
 
 import styled, { keyframes } from "styled-components";
-
-import pinkBlob from "../../assets/blobPink.png";
-import purpleBlob from "../../assets/blob purple.png";
-import whiteBlob from "../../assets/blob white.png";
-import arrow from "../../assets/Arrow Right.svg";
-import Mobile from "../../assets/mobile.svg";
-
+ 
 const move = keyframes`
 0% { transform: translateY(-5px)  }
     50% { transform: translateY(10px) }
@@ -30,35 +24,7 @@ const HomeSection = styled.section`
     padding-bottom: 2rem;
   }
 `;
-
-const Blobs = styled.div`
-  width: 100%;
-  position: absolute;
-  right: 0;
-  @media only Screen and (max-width: 48em) {
-    opacity: 0.5;
-  }
-`;
-
-const PinkBlob = styled.div`
-  width: calc(15% + 15vw);
-  position: absolute;
-  right: 0;
-  top: calc(5rem + 5vw);
-  z-index: 6;
-`;
-const PurpleBlob = styled.div`
-  width: calc(10% + 10vw);
-  position: absolute;
-  right: 0;
-`;
-const WhiteBlob = styled.div`
-  width: calc(20% + 20vw);
-  position: absolute;
-  right: calc(3.5rem + 3.5vw);
-  top: calc(2rem + 2vw);
-  z-index: 5;
-`;
+ 
 
 const MainContent = styled.div`
   display: flex;
@@ -112,30 +78,10 @@ const Lb = styled.div`
     filter: none;
   }
 `;
-
-const Topic = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--nav);
-  color: var(--white);
-  font-weight: 700;
-  font-size: calc(0.4rem + 0.4vw);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-`;
-
-const Circle = styled.span`
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background-color: var(--purple);
-  margin-right: 0.5rem;
-`;
+ 
 
 const Title = styled.h1`
-  font-size: calc(2rem + 1vw);
+  font-size: calc(3rem + 2vw);
   line-height: 1.2;
   padding: 0.5rem 0;
 `;
@@ -176,34 +122,32 @@ const CTA = styled.button`
 const HeroSection = () => {
   return (
     <HomeSection id="home">
-      {/* <Blobs>
-        <PinkBlob>
-          <img src={pinkBlob} alt="" width="400" height="400" />{" "}
-        </PinkBlob>
-        <WhiteBlob>
-          <img src={whiteBlob} alt="" width="400" height="400" />
-        </WhiteBlob>
-        <PurpleBlob>
-          <img src={purpleBlob} alt="" width="400" height="400" />
-        </PurpleBlob>
-      </Blobs> */}
-
       <MainContent id="home">
         <Lb id="leftBlock">
-           
-          <Title>Start Your Investment Journey Today
-</Title>
+          <Title>Start Your Investment Journey Today</Title>
           <SubText>
             We're Here to Guide You Toward Smart Investment Choices
           </SubText>
           <CTA>
-            Join Us&nbsp;
-            <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLTkzAdnWhTwT7OqlhAS5fbW9LOKyHbLzoEQ&s"} alt="cta" width="100" height="100" />
+            <a href="https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s">
+              {' '}
+              Join Us{' '}
+            </a>
+            <img
+              src={
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLTkzAdnWhTwT7OqlhAS5fbW9LOKyHbLzoEQ&s'
+              }
+              alt="cta"
+              width="100"
+              height="100"
+            />
           </CTA>
         </Lb>
 
         <MobileSvg
-          src={"https://e1.pxfuel.com/desktop-wallpaper/337/915/desktop-wallpaper-pin-on-finance-candlestick-chart.jpg"}
+          src={
+            'https://e1.pxfuel.com/desktop-wallpaper/337/915/desktop-wallpaper-pin-on-finance-candlestick-chart.jpg'
+          }
           alt="Mobile Svg"
           srcSet=""
           width="400"

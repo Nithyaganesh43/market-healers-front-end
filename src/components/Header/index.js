@@ -118,41 +118,6 @@ const Button = styled.button`
     }
   }
 `;
-const HamburgerBtn = styled.button`
-  display: none;
-  @media only Screen and (max-width: 48em) {
-    display: inline-block;
-  }
-  position: relative;
-  background-color: transparent;
-  width: 2rem;
-  height: 2px;
-  margin-top: 0rem;
-  transition: all 0.3s;
-  cursor: pointer;
-  &::before,
-  &::after {
-    content: "";
-    background-color: var(--white);
-    width: 2rem;
-    height: 2px;
-    display: inline-block;
-    position: absolute;
-    left: 0;
-    cursor: pointer;
-
-    transition: all 0.3s;
-  }
-  &::before {
-    top: ${(props) => (props.clicked ? "0" : "-0.5rem")};
-    transform: ${(props) => (props.clicked ? "rotate(135deg)" : "rotate(0)")};
-  }
-  &::after {
-    top: ${(props) => (props.clicked ? "0" : "0.5rem")};
-    transform: ${(props) => (props.clicked ? "rotate(-135deg)" : "rotate(0)")};
-  }
-`;
-
 const MobileMenu = styled.nav`
   display: none;
   @media only Screen and (max-width: 48em) {
@@ -161,27 +126,70 @@ const MobileMenu = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0rem 0;
-  overflow-x: hidden;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  opacity: ${(props) => (props.clicked ? "1" : 0)};
-  visibility: ${(props) => (props.clicked ? "visible" : "hidden")};
-  transition: all 0.5s;
-  z-index: -10;
-  background-color: rgb(53 53 63 / 95%);
-  border-radius: 20px;
-  margin: 0.5rem;
+  position: fixed;  
+  top: 10%;
+  left: 35%;
+  right: 5%;
+  bottom: 60%;
+  border-radius :20%;
+  opacity: ${(props) => (props.clicked ? '1' : '0')};
+    
+  z-index: ${(props) => (props.clicked ? '100' : '-10')};
+  background-color: rgb(
+    53,
+    53,
+    63,
+    0.95
+  );  
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  
+
   a {
-    color: var(--white);
+    color: var(--white, #ffffff);  
     font-weight: 600;
-    font-size: 1.5rem;
-    margin: 1.5rem;
-    cursor: pointer;
+    font-size: 1.2rem;
+    text-decoration: none; /* Remove underline */
+    margin: 1rem;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: var(--purple, #6c63ff);  
+    }
   }
 `;
+
+const HamburgerBtn = styled.button`
+  display: none;
+  @media only Screen and (max-width: 48em) {
+    display: inline-block;
+  }
+  position: relative;
+  background-color: transparent;
+  border: none;
+  width: 2rem;
+  height: 2px;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: '';
+    background-color: ${(props) =>
+      props.clicked ? 'var(--purple, #6c63ff)' : 'var(--white, #ffffff)'};
+    width: 2rem;
+    height: 2px;
+    position: absolute;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+  }
+  &::before {
+    top: ${(props) => (props.clicked ? '0' : '-0.5rem')};
+    transform: ${(props) => (props.clicked ? 'rotate(135deg)' : 'rotate(0)')};
+  }
+  &::after {
+    top: ${(props) => (props.clicked ? '0' : '0.5rem')};
+    transform: ${(props) => (props.clicked ? 'rotate(-135deg)' : 'rotate(0)')};
+  }
+`;
+
 const Header = () => {
   const [click, setClick] = useState(false); 
   const ref = useRef(null);
@@ -258,37 +266,44 @@ const Header = () => {
   return (
     <Headers ref={ref}>
       <Logo>
-        <img src={"https://res.cloudinary.com/dptf0mrro/image/upload/v1735920388/MH__1_1_pjlq6u.png"} alt="Market Healers" />
+        <img
+          src={
+            'https://res.cloudinary.com/dptf0mrro/image/upload/v1735920388/MH__1_1_pjlq6u.png'
+          }
+          alt="Market Healers"
+        />
         <h3>Market Healers</h3>
       </Logo>
-      
+
       <Nav>
-        <a href="#home" onClick={(e) => scrollUp("home", e)}>
+        <a href="#home" onClick={(e) => scrollUp('home', e)}>
           Home
         </a>
-        <a href="#about" onClick={(e) => scrollUp("about", e)}>
+        <a href="#about" onClick={(e) => scrollUp('about', e)}>
           About Us
         </a>
-        <a href="#services" onClick={(e) => scrollUp("services", e)}>
-          Services
+        <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
+          Contact Us
         </a>
-        <a href="#contact" onClick={(e) => scrollUp("contact", e)}>
-          <Button>Contact Us</Button>
+        <a href="#">
+          {/* <Button>SignIn</Button> */}
         </a>
       </Nav>
       <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
         <span></span>
       </HamburgerBtn>
       <MobileMenu clicked={+click}>
-        <a href="#home" onClick={(e) => handleClick("home", e)}>
+        <a href="#home" onClick={(e) => handleClick('home', e)}>
           Home
         </a>
-        <a href="#about" onClick={(e) => handleClick("about", e)}>
+        <a href="#about" onClick={(e) => handleClick('about', e)}>
           About Us
         </a>
-        
-        <a href="#contact" onClick={(e) => handleClick("contact", e)}>
-          <Button>Contact Us</Button>
+        <a href="#contact" onClick={(e) => handleClick('contact', e)}>
+          Contact Us
+        </a>
+        <a href="#">
+          {/* <Button>SignIn</Button> */}
         </a>
       </MobileMenu>
     </Headers>
