@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 const CARD = styled.div`
   height: calc(8rem + 15vw);
   width: calc(9rem + 15vw);
