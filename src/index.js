@@ -1,11 +1,38 @@
 import React from "react";
-// import ReactDOM from "react-dom";
-
+import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import App from "./App"; 
 
-import { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
+import { lazy, Suspense } from 'react';
+const Header = lazy(() => import('./components/Header/index')); 
+ 
 
-const domNode = document.getElementById('root');
-const root = createRoot(domNode);
-root.render(<App />);
-  
+ 
+
+const RootApp = () => (
+    
+    <>
+    <Suspense fallback={null}>
+    <Header />
+    <Outlet />
+    </Suspense>
+    </>
+   
+);
+
+const appRouter = createBrowserRouter([
+  {
+    path: '/',
+    element: <RootApp />,
+    children: [
+      {
+        path: '/',
+        element: <App />,
+      } 
+    ],
+  },
+]);
+
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<RouterProvider router={appRouter} />);
