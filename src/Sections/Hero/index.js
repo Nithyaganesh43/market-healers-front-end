@@ -16,7 +16,7 @@ const HomeSection = styled.section`
   justify-content: center;
   position: relative;
   @media only Screen and (max-width: 48em) {
-    height: 70vw;
+    height: 100vw;
     display: block;
   }
   @media only Screen and (max-width: 420px) {

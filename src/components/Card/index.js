@@ -39,7 +39,10 @@ const TEXT = styled.h4`
 const NAME = styled.h3`
   color: var(--pink);
   padding-top: 1rem;
-  font-size: calc(0.5rem + 1vw);
+  font-size: calc(0.2rem + 1vw);
+  @media only Screen and (max-width: 48em) {
+    font-size: calc(0.5rem + 1vw);
+  }
 `;
 
 const Card = ({ name, text, image }) => {
