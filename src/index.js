@@ -5,7 +5,7 @@ import App from "./App";
 import ReactDOM from 'react-dom/client';
 import { lazy, Suspense } from 'react';
 const Header = lazy(() => import('./components/Header/index')); 
- 
+const Footer = lazy(()=> import('./components/Footer/index'));
 
  
 
@@ -14,7 +14,7 @@ const RootApp = () => (
     <>
     <Suspense fallback={null}>
     <Header />
-    <Outlet />
+    <Outlet /> 
     </Suspense>
     </>
    
@@ -27,8 +27,8 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <App />,
-      } 
+        element: [<App />],
+      },
     ],
   },
 ]);

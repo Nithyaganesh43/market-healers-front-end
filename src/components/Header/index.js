@@ -5,17 +5,20 @@ import styled from "styled-components";
 
 const Headers = styled.header`
   display: flex;
-  marign-top:0px;
+  marign-top: 0px;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color:rgb(32, 32, 32);
-  color: var(--white); 
+  width : 100%;
+  background-color: rgb(32, 32, 32);
+  color: var(--white);
+  marign-top: 0px;
   z-index: 50;
   @media only Screen and (max-width: 64em) {
+    
     padding: 0.5rem 5rem;
-  }
-  @media only Screen and (max-width: 40em) {
+    }
+    @media only Screen and (max-width: 40em) {
     padding: 0.5rem 1rem;
   }
 `;

@@ -6,7 +6,7 @@ import About from "../Sections/About/index";
 import Testimonials from "../Sections/Testimonials/index";
 import Contact from "../Sections/Contact/index";
 import styled from "styled-components";
-
+ import './btn.css';
 const Container = styled.div`
   display: flex;
   flex-direction: column;

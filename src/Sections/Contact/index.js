@@ -1,8 +1,9 @@
  
  
 import styled from 'styled-components';
-
+import './btn.css';
 const ContactSection = styled.section`
+
   width: 100vw;
   padding: calc(2.5rem + 2.5vw) 0;
   background-color: #0a0b10;
@@ -95,20 +96,20 @@ const Form = styled.form`
       opacity: 0.6;
     }
   }
-  button {
-    padding: 0.8rem 2rem;
-    background-color: var(--white);
-    border-radius: 20px;
-    font-size: 1.2rem;
-    color: #0a0b10;
-    cursor: pointer;
-    transition: transform 0.3s;
-    &:hover {
-      transform: scale(1.1);
-    }
-    &:active {
-      transform: scale(0.9);
-    }
+  // button {
+  //   padding: 0.8rem 2rem;
+  //   background-color: var(--white);
+  //   border-radius: 20px;
+  //   font-size: 1.2rem;
+  //   color: #0a0b10;
+  //   cursor: pointer;
+  //   transition: transform 0.3s;
+  //   &:hover {
+  //     transform: scale(1.1);
+  //   }
+  //   &:active {
+  //     transform: scale(0.9);
+  //   }
   }
 `;
 
@@ -173,15 +174,17 @@ const Contact = () => {
           rows="2"
           placeholder="your message"></textarea>
         <div style={{ margin: '0 auto' }}>
+          
           <button
+            class="btn-12"
             onClick={(e) => {
               document.getElementById('email').value = '';
               document.getElementById('name').value = '';
               document.getElementById('text').value = '';
-               
+
               e.preventDefault();
             }}>
-            Submit
+            <span>Button</span>
           </button>
         </div>
       </Form>

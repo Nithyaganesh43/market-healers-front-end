@@ -28,7 +28,10 @@ html{
     a {
         font-family: 'Poppins', sans-serif;
             }
-    body {
+    body { 
+    margin: 0;
+    overflow-x: hidden;
+ 
 
         margin:0;
         padding:0;

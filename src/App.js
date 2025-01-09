@@ -9,8 +9,7 @@ function App() {
     <>
       <Suspense fallback={null}>
         <GlobalStyle /> 
-        <ScrollToTop />
-        
+        <ScrollToTop /> 
         <Home /> 
       </Suspense>
     </>

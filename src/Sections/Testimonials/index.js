@@ -86,7 +86,6 @@ const Testimonials = () => {
           <Card
             text="If you don't find a way to make money while you sleep, you will work until you die."
             name="Warren Buffett(Sage of Omaha)"
-             
             image="avatar-1"
           />
 
@@ -98,7 +97,7 @@ const Testimonials = () => {
 
           <Card
             text="Success is a new chapter after failure"
-            name="Harshad mehta (big bull)"
+            name="Harshad mehta (Big Bull)"
             image="avatar-3"
           />
 
