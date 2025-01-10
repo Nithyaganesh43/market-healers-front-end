@@ -184,7 +184,7 @@ const Contact = () => {
 
               e.preventDefault();
             }}>
-            <span>Button</span>
+            <span>Submit</span>
           </button>
         </div>
       </Form>

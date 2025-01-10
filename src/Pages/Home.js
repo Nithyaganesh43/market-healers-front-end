@@ -1,13 +1,12 @@
-//This is home page, It will contains all the sections require in this page.
+ 
+import HeroSection from '../HomeSections/Hero/index';
+import About from '../HomeSections/About/index'; 
+import Testimonials from "../HomeSections/Testimonials/index";
 
-//Import all the require sections here
-import HeroSection from "../Sections/Hero/index";
-import About from "../Sections/About/index"; 
-import Testimonials from "../Sections/Testimonials/index";
-import Contact from "../Sections/Contact/index";
 import styled from "styled-components";
  import './btn.css';
 const Container = styled.div`
+  background-color:rgb(255, 255, 255);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +20,6 @@ const Home = () => {
       <HeroSection />
       <About />
       <Testimonials />
-      <Contact />
     </Container>
   );
 };

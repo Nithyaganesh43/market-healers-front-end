@@ -1,23 +1,31 @@
-import React from "react";
+import React from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import App from "./App"; 
 
+import Contact from './components/Contact/index';
 import ReactDOM from 'react-dom/client';
 import { lazy, Suspense } from 'react';
-const Header = lazy(() => import('./components/Header/index')); 
-const Footer = lazy(()=> import('./components/Footer/index'));
 
- 
+import { GlobalStyle } from './globalStyles';
+const Header = lazy(() => import('./components/Header/index'));
+const TermsAndConditions = lazy(() =>
+  import('./Pages/TermsAndConditions/index')
+);
+const News = lazy(() => import('./Pages/News'));
+
+const Main = lazy(() => import('./Pages/Main'));
+const Home = lazy(() => import('./Pages/Home'));
+const ScrollToTop = lazy(() => import('./components/ScrollToTop/index'));
 
 const RootApp = () => (
-    
-    <>
+  <>
     <Suspense fallback={null}>
-    <Header />
-    <Outlet /> 
+      <GlobalStyle />
+      <ScrollToTop />
+      <Header />
+      <Outlet />
+      <Contact />
     </Suspense>
-    </>
-   
+  </>
 );
 
 const appRouter = createBrowserRouter([
@@ -27,12 +35,23 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: [<App />],
+        element: [<Home />],
+      },
+      {
+        path: '/termsofservice',
+        element: [<TermsAndConditions />],
+      },
+      {
+        path: '/main',
+        element: [<Main />],
+      },
+      {
+        path: '/news',
+        element: [<News />],
       },
     ],
   },
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<RouterProvider router={appRouter} />);

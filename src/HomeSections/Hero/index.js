@@ -125,8 +125,8 @@ const HeroSection = () => {
 };
 
   return (
-    <HomeSection id="home">
-      <MainContent id="home">
+    <HomeSection >
+      <MainContent  >
         <Lb id="leftBlock">
           <Title>Start Your Investment Journey Today</Title>
           <SubText>

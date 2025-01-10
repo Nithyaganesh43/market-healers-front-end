@@ -18,11 +18,17 @@ export const GlobalStyle = createGlobalStyle`
     padding:0;
     box-sizing:border-box;
     font-family: 'Poppins', sans-serif;
+ 
 }
 html{
   scroll-behavior:smooth;
   
 }
+
+
+#root{
+
+  background-color:rgb(0, 0, 0);}
     body,
     html,
     a {
@@ -31,7 +37,8 @@ html{
     body { 
     margin: 0;
     overflow-x: hidden;
- 
+
+  background-color: #000;
 
         margin:0;
         padding:0;

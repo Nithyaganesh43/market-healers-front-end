@@ -22,6 +22,7 @@ const Headers = styled.header`
 
 const Logo = styled.a`
   border-radius: 15px;
+  background-color: rgb(32, 32, 32);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -61,21 +62,22 @@ const Logo = styled.a`
 
 const Nav = styled.nav`
   width: 25rem;
+  background-color: rgb(32, 32, 32);
   max-width: 40rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.3s;
   @media only Screen and (max-width: 48em) {
- 
     display: none;
   }
   a {
     font-weight: 600;
     line-height: 1.5;
+    background-color: rgb(32, 32, 32);
     color: var(--white);
     &::after {
-      content: "";
+      content: '';
       display: block;
       height: 3px;
       width: 0;
@@ -267,49 +269,47 @@ const Header = () => {
   }, []);
 
   return (
-    <Headers ref={ref}>
-      <Logo>
-        <img
-          src={
-            'https://res.cloudinary.com/dptf0mrro/image/upload/v1735920388/MH__1_1_pjlq6u.png'
-          }
-          alt="Market Healers"
-        />
-        <h3>Market Healers</h3>
-      </Logo>
+    <div id="home">
+      <Headers ref={ref} id="home">
+        <Logo>
+          <img
+            src={
+              'https://res.cloudinary.com/dptf0mrro/image/upload/v1735920388/MH__1_1_pjlq6u.png'
+            }
+            alt="Market Healers"
+          />
+          <h3>Market Healers</h3>
+        </Logo>
 
-      <Nav>
-        <a href="#home" onClick={(e) => scrollUp('home', e)}>
-          Home
-        </a>
-        <a href="#about" onClick={(e) => scrollUp('about', e)}>
-          About Us
-        </a>
-        <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
-          Contact Us
-        </a>
-        <a href="#">
-          {/* <Button>SignIn</Button> */}
-        </a>
-      </Nav>
-      <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
-        <span></span>
-      </HamburgerBtn>
-      <MobileMenu clicked={+click}>
-        <a href="#home" onClick={(e) => handleClick('home', e)}>
-          Home
-        </a>
-        <a href="#about" onClick={(e) => handleClick('about', e)}>
-          About Us
-        </a>
-        <a href="#contact" onClick={(e) => handleClick('contact', e)}>
-          Contact Us
-        </a>
-        <a href="#">
-          {/* <Button>SignIn</Button> */}
-        </a>
-      </MobileMenu>
-    </Headers>
+        <Nav>
+          <a href="#home" onClick={(e) => scrollUp('home', e)}>
+            Home
+          </a>
+          <a href="#about" onClick={(e) => scrollUp('about', e)}>
+            About Us
+          </a>
+          <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
+            Contact Us
+          </a>
+          <a href="#">{/* <Button>SignIn</Button> */}</a>
+        </Nav>
+        <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
+          <span></span>
+        </HamburgerBtn>
+        <MobileMenu clicked={+click}>
+          <a href="#home" onClick={(e) => handleClick('home', e)}>
+            Home
+          </a>
+          <a href="#about" onClick={(e) => handleClick('about', e)}>
+            About Us
+          </a>
+          <a href="#contact" onClick={(e) => handleClick('contact', e)}>
+            Contact Us
+          </a>
+          <a href="#">{/* <Button>SignIn</Button> */}</a>
+        </MobileMenu>
+      </Headers>
+    </div>
   );
 };
 

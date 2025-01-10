@@ -8,10 +8,13 @@
   border: 0 solid;
   box-sizing: border-box;
 }
-
+body{
+  
+  background-color: #232323;
+}
 .btn-12 {
   -webkit-tap-highlight-color: transparent;
-  -webkit-appearance: button;
+ 
   background-color: #000;
   background-image: none;
   color: #fff;
@@ -22,8 +25,7 @@
   font-size: 100%;
   font-weight: 900;
   line-height: 1.5;
-  margin: 0;
-  -webkit-mask-image: -webkit-radial-gradient(#000, #fff);
+  margin: 0; 
   padding: 0;
   text-transform: uppercase;
 }
