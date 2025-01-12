@@ -174,9 +174,10 @@ const Contact = () => {
           rows="2"
           placeholder="your message"></textarea>
         <div style={{ margin: '0 auto' }}>
-          
+           
           <button
-            class="btn-12"
+            type="button"
+            class="btn"
             onClick={(e) => {
               document.getElementById('email').value = '';
               document.getElementById('name').value = '';
@@ -184,7 +185,15 @@ const Contact = () => {
 
               e.preventDefault();
             }}>
-            <span>Submit</span>
+            <strong>Submit</strong>
+            <div id="container-stars">
+              <div id="stars"></div>
+            </div>
+
+            <div id="glow">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
           </button>
         </div>
       </Form>
