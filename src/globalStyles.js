@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -22,7 +22,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 html{
   scroll-behavior:smooth;
-  
+    overflow-x: hidden;
 }
 
 
@@ -81,5 +81,3 @@ html{
 
 
 `;
-
-//  /* Colors */

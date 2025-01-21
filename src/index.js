@@ -10,17 +10,12 @@ const Header = lazy(() => import('./components/Header/index'));
 const TermsAndConditions = lazy(() =>
   import('./Pages/TermsAndConditions/index')
 );
-const News = lazy(() => import('./Pages/News'));
-
-const Main = lazy(() => import('./Pages/Main'));
-const Home = lazy(() => import('./Pages/Home'));
-const ScrollToTop = lazy(() => import('./components/ScrollToTop/index'));
+ const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => (
   <>
     <Suspense fallback={null}>
       <GlobalStyle />
-      <ScrollToTop />
       <Header />
       <Outlet />
       <Contact />
@@ -40,15 +35,7 @@ const appRouter = createBrowserRouter([
       {
         path: '/termsofservice',
         element: [<TermsAndConditions />],
-      },
-      {
-        path: '/main',
-        element: [<Main />],
-      },
-      {
-        path: '/news',
-        element: [<News />],
-      },
+      }, 
     ],
   },
 ]);

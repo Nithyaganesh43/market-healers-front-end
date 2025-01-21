@@ -47,11 +47,11 @@ const NAME = styled.h3`
 
 const Card = ({ name, text, image }) => {
   const Avatar =
-    image == 'avatar-1'
+    image === 'avatar-1'
       ? 'https://business.thedailyguardian.com/wp-content/uploads/2022/05/warren-buffet.jpg'
-      : image == 'avatar-2'
+      : image === 'avatar-2'
       ? 'https://img.freepik.com/premium-photo/elon-musk-picture-ceo-spacex-tesla-twitter_485374-860.jpg'
-      : image == 'avatar-4'
+      : image === 'avatar-4'
       ? 'https://cdn.britannica.com/77/142177-050-4E8010A9/Albert-Einstein-1947.jpg'
       : 'https://www.harshadmehta.in/files/image-1401.png';
  

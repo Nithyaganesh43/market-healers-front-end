@@ -175,7 +175,7 @@ const Contact = () => {
         throw new Error('Failed to send your message.');
       }
     } catch (e) {
-      toast.error(e.message || 'Something went wrong. Please try again.');
+      toast.error('Something went wrong. Please try again.');
     }
   }
 

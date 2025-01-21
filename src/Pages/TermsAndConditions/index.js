@@ -44,14 +44,14 @@ const ListItem = styled.li`
   margin-bottom: 10px;
 `;
 
-const Link = styled.a`
-  color: #800080;
-  text-decoration: none;
+// const Link = styled.a`
+//   color: #800080;
+//   text-decoration: none;
 
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+//   &:hover {
+//     text-decoration: underline;
+//   }
+// `;
 
 function TermsAndConditions() {
   return (

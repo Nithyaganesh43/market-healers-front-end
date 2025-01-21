@@ -5,13 +5,15 @@ import styled from "styled-components";
 
 const Headers = styled.header`
   display: flex;
-  marign-top:0px;
+  margin-top: 0;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background-color:rgb(32, 32, 32);
-  color: var(--white); 
-  z-index: 50;
+  background-color: rgb(32, 32, 32);
+  color: var(--white);
+  z-index: 180;
+  width:100vw;
+  position: relative;
   @media only Screen and (max-width: 64em) {
     padding: 0.5rem 5rem;
   }
@@ -30,14 +32,16 @@ const Logo = styled.a`
   width: auto;
   height: auto;
   cursor: pointer;
+  position: relative;
+  z-index: 180;
   img {
     border-radius: 40%;
-    margin-bottom: 0rem;
+    margin-bottom: 0;
     width: 3rem;
     height: 3rem;
   }
   h3 {
-    margin: 0px 10px;
+    margin: 0 10px;
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
@@ -46,8 +50,6 @@ const Logo = styled.a`
   }
   @media only Screen and (max-width: 48em) {
     img {
-      border-radius: 40%;
-      margin-bottom: 0rem;
       width: 2rem;
       height: 2rem;
     }
@@ -57,17 +59,16 @@ const Logo = styled.a`
   }
 `;
 
-
-
-
 const Nav = styled.nav`
-  width: 25rem;
+  width: auto;
   background-color: rgb(32, 32, 32);
   max-width: 40rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   transition: all 0.3s;
+  z-index: 180;
+  position: relative;
   @media only Screen and (max-width: 48em) {
     display: none;
   }
@@ -76,6 +77,9 @@ const Nav = styled.nav`
     line-height: 1.5;
     background-color: rgb(32, 32, 32);
     color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
     &::after {
       content: '';
       display: block;
@@ -88,97 +92,27 @@ const Nav = styled.nav`
       width: 100%;
       background: var(--purple);
     }
-    /* &:not(:last-child) {
-      margin-right: 2rem;
-    } */
-    /* @media only Screen and (max-width: 48em) {
-      &:not(:last-child) {
-        margin-right: 1rem;
-      }
-    } */
-  }
-`;
-
-const Button = styled.button`
-  background-color: var(--purple);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  color: var(--white);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  &:hover {
-    transform: scale(1.1);
-  }
-  &:focus {
-    transform: scale(0.9);
-  }
-  @media only Screen and (max-width: 40em) {
-    font-size: 1.2rem;
     &:hover {
-      transform: none;
-    }
-    &:focus {
-      transform: none;
-    }
-  }
-`;
-const MobileMenu = styled.nav`
-  display: none;
-  @media only Screen and (max-width: 48em) {
-    display: flex;
-  }
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: fixed;  
-  top: 10%;
-  left: 35%;
-  right: 5%;
-  bottom: 60%;
-  border-radius :20%;
-  opacity: ${(props) => (props.clicked ? '1' : '0')};
-    
-  z-index: ${(props) => (props.clicked ? '100' : '-10')};
-  background-color: rgb(
-    53,
-    53,
-    63,
-    0.95
-  );  
-  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  
-
-  a {
-    color: var(--white, #ffffff);  
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-decoration: none; /* Remove underline */
-    margin: 1rem;
-    transition: color 0.3s ease-in-out;
-    &:hover {
-      color: var(--purple, #6c63ff);  
+      color: var(--purple);
+      transform: scale(1.05);
     }
   }
 `;
 
 const HamburgerBtn = styled.button`
-  display: none;
-  @media only Screen and (max-width: 48em) {
-    display: inline-block;
-  }
   position: relative;
   background-color: transparent;
   border: none;
   width: 2rem;
   height: 2px;
   cursor: pointer;
-
+  z-index: 200;
+  display: inline-block;
   &::before,
   &::after {
     content: '';
     background-color: ${(props) =>
-      props.clicked ? 'var(--purple, #6c63ff)' : 'var(--white, #ffffff)'};
+      props.clicked ? 'var(--purple)' : 'var(--white)'};
     width: 2rem;
     height: 2px;
     position: absolute;
@@ -193,7 +127,56 @@ const HamburgerBtn = styled.button`
     top: ${(props) => (props.clicked ? '0' : '0.5rem')};
     transform: ${(props) => (props.clicked ? 'rotate(-135deg)' : 'rotate(0)')};
   }
+  @media only Screen and (min-width: 76em) {
+    display: none;
+  }
 `;
+
+const MobileMenu = styled.nav`
+  visibility: ${(props) => (props.clicked ? 'visible' : 'hidden')};
+  opacity: ${(props) => (props.clicked ? '1' : '0')};
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 10%;
+  right: 10%;
+  font-size:18px;
+  border-radius: 20px;
+  z-index: ${(props) => (props.clicked ? '1000' : '-1')};
+  background-color: rgba(53, 53, 63, 0.95);
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  a {
+    font-weight: 600;
+    font-size:1.3rem;
+    line-height: 1.5;
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    &::after {
+      content: '';
+      display: block;
+      height: 3px;
+      width: 0;
+      background: transparent;
+      transition: width 0.5s;
+    }
+    &:not(:last-child):hover::after {
+      width: 100%;
+      background: var(--purple);
+    }
+    &:hover {
+      color: var(--purple);
+      transform: scale(1.05);
+    }
+  }
+  @media only Screen and (min-width: 76em) {
+    display: none;
+  }
+`;
+
 
 const Header = () => {
   const [click, setClick] = useState(false); 
@@ -291,7 +274,7 @@ const Header = () => {
           <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
             Contact Us
           </a>
-          <a href="#">{/* <Button>SignIn</Button> */}</a>
+          {/* <a href="#"><Button>SignIn</Button></a> */}
         </Nav>
         <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
           <span></span>
@@ -301,12 +284,12 @@ const Header = () => {
             Home
           </a>
           <a href="#about" onClick={(e) => handleClick('about', e)}>
-            About Us
+            About Us.
           </a>
           <a href="#contact" onClick={(e) => handleClick('contact', e)}>
             Contact Us
           </a>
-          <a href="#">{/* <Button>SignIn</Button> */}</a>
+          {/* <a href="#"><Button>SignIn</Button></a> */}
         </MobileMenu>
       </Headers>
     </div>
