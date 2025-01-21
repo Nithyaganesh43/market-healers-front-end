@@ -1,15 +1,13 @@
- 
- 
 import styled from 'styled-components';
 import './btn.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const ContactSection = styled.section`
-
-  width: 100vw;
+  overflow: hidden;
   padding: calc(2.5rem + 2.5vw) 0;
   background-color: #0a0b10;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   justify-content: center;
 `;
@@ -36,7 +34,7 @@ const Title = styled.h1`
 const Icons = styled.div`
   display: flex;
   cursor: pointer;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   a {
     &:hover {
       img {
@@ -45,11 +43,11 @@ const Icons = styled.div`
       }
     }
     &:not(:last-child) {
-      margin-right: 2rem;
+      margin-right: 1rem;
     }
     img {
-      width: 3rem;
-      height: 3rem;
+      width: 2.5rem;
+      height: 2.5rem;
     }
   }
 `;
@@ -76,7 +74,7 @@ const Form = styled.form`
       opacity: 0.6;
     }
     &[name='name'] {
-      margin-right: 2rem;
+      margin-right: 0rem;
     }
   }
   textarea {
@@ -124,7 +122,31 @@ const Row = styled.div`
     }
   }
 `;
-const Contact = () => {  
+const Contact = () => {
+  async function handleClick(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('email').value;
+    const name = document.getElementById('name').value;
+    const text = document.getElementById('text').value;
+
+    document.getElementById('email').value = '';
+    document.getElementById('name').value = '';
+    document.getElementById('text').value = '';
+
+    await fetch('https://server.markethealers.com/markethealers/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name, message: text }),
+    })
+      .then((e) => {
+        toast.success('Thanks for your interaction!');
+      })
+      .catch((e) => {
+        toast.error(e.message || 'Something went wrong. Please try again.');
+      });
+  }
+
   return (
     <ContactSection id="contact">
       <Title>Get in touch</Title>
@@ -174,16 +196,11 @@ const Contact = () => {
           rows="2"
           placeholder="your message"></textarea>
         <div style={{ margin: '0 auto' }}>
-           
           <button
             type="button"
-            class="btn"
-            onClick={(e) => {
-              document.getElementById('email').value = '';
-              document.getElementById('name').value = '';
-              document.getElementById('text').value = '';
-
-              e.preventDefault();
+            className="btn"
+            onClick={async (e) => {
+              handleClick(e);
             }}>
             <strong>Submit</strong>
             <div id="container-stars">
@@ -197,6 +214,7 @@ const Contact = () => {
           </button>
         </div>
       </Form>
+      <ToastContainer />
     </ContactSection>
   );
 };
