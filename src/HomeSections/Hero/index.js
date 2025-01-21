@@ -9,7 +9,7 @@ const move = keyframes`
 const HomeSection = styled.section`
   width: 100vw;
   height: 45vw;
-  background-color: #0a0b10;
+  background-color:rgb(6, 6, 7);
   display: flex;
   justify-content: center;
   position: relative;
@@ -116,9 +116,7 @@ const SubText = styled.h5`
 
 const HeroSection = () => {
    const handleClick = () => {
-  // window.location.href =
-  //   'https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s';
-    window.open(
+     window.open(
       'https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s',
       '_blank'
     );
