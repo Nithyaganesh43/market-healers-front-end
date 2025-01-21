@@ -140,7 +140,7 @@ const Contact = () => {
       body: JSON.stringify({ email, name, message: text }),
     })
       .then((e) => {
-        toast.success('Thanks for your interaction!');
+        toast.success('Thanks for your interaction! Kindly Check Your Mail Inbox/Spam');
       })
       .catch((e) => {
         toast.error(e.message || 'Something went wrong. Please try again.');
