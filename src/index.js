@@ -10,13 +10,16 @@ const Header = lazy(() => import('./components/Header/index'));
 const TermsAndConditions = lazy(() =>
   import('./Pages/TermsAndConditions/index')
 );
+const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
+
+
+
  const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => (
   <>
     <Suspense fallback={null}>
-      <GlobalStyle />
-      <Header />
+      <GlobalStyle /> 
       <Outlet />
       <Contact />
     </Suspense>
@@ -30,12 +33,16 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: [<Home />],
+        element: [ <Header />,<Home />],
       },
       {
         path: '/termsofservice',
         element: [<TermsAndConditions />],
-      }, 
+      },
+      {
+        path: '/PrivacyPolicy',
+        element: [<PrivacyPolicy />],
+      },
     ],
   },
 ]);

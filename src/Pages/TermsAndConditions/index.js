@@ -5,53 +5,81 @@ const TermsContainer = styled.div`
   color: #fff;
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  margin: 0;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px; /* Center and limit width */
 `;
 
 const Heading1 = styled.h1`
   color: #800080; /* Purple heading */
   font-size: 2.5em;
   margin-bottom: 20px;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
 `;
 
 const Heading2 = styled.h2`
   color: #800080;
   font-size: 2em;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 1.75em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
 `;
 
 const Heading3 = styled.h3`
   color: #800080;
   font-size: 1.5em;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    font-size: 1.3em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
 `;
 
 const Paragraph = styled.p`
   font-size: 1.1em;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  line-height: 1.8;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
 `;
 
 const List = styled.ul`
   font-size: 1.1em;
-  margin-bottom: 15px;
-  padding-left: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+
+  @media (max-width: 768px) {
+    font-size: 1em;
+    margin-bottom: 15px;
+    padding-left: 20px;
+  }
 `;
 
 const ListItem = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 10px;
+  }
 `;
 
-// const Link = styled.a`
-//   color: #800080;
-//   text-decoration: none;
-
-//   &:hover {
-//     text-decoration: underline;
-//   }
-// `;
+ 
 
 function TermsAndConditions() {
   return (
