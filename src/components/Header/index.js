@@ -221,8 +221,8 @@ const Header = () => {
     scrollUp(id, e);
   };
 const handleLogin = ()=>{
-  window.location.href =
-    'https://auth.markethealers.com/src/AuthPage/login.html';
+  // window.location.href =
+  //   'https://auth.markethealers.com/src/AuthPage/login.html';
 }
   useEffect(() => {
     const element = ref.current;

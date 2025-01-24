@@ -116,9 +116,9 @@ const SubText = styled.h5`
 
 const HeroSection = () => {
    const handleClick = () => {
-     window.location.href=(
-       'https://auth.markethealers.com/src/AuthPage/signup.html' 
-     );
+    //  window.location.href=(
+    //    'https://auth.markethealers.com/src/AuthPage/signup.html' 
+    //  );
 };
 
   return (
@@ -129,23 +129,7 @@ const HeroSection = () => {
           <SubText>
             We're Here to Guide You Toward Smart Investment Choices
           </SubText>
-          {/* <CTA>
-            <div  onClick={handleClick} style={{ cursor: 'pointer' }}>
-              Join Us
-              <img
-                src={
-                  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLTkzAdnWhTwT7OqlhAS5fbW9LOKyHbLzoEQ&s'
-                }
-                alt="cta"
-                width="100"
-                height="100"
-              />
-            </div>
-            {document.getElementById('btn')?.addEventListener('click', () => {
-              window.location.href =
-                'https://www.whatsapp.com/channel/0029Vb0CJG7KgsNkWnwFHL3s';
-            })}
-          </CTA> */}
+          
           <button className="button" onClick={handleClick}>
             <div className="bg"></div> 
             <div className="wrap"> 
