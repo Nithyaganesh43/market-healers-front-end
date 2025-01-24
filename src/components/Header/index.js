@@ -59,7 +59,7 @@ const Logo = styled.a`
 `;
 
 const Nav = styled.nav`
-  width: 25rem;
+  width: 35rem;
   background-color: rgb(32, 32, 32);
   max-width: 40rem;
   display: flex;
@@ -175,7 +175,30 @@ const MobileMenu = styled.nav`
     display: none;
   }
 `;
-
+const Button = styled.button`
+  background-color: var(--purple);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:focus {
+    transform: scale(0.9);
+  }
+  @media only Screen and (max-width: 40em) {
+    font-size: 1.2rem;
+    &:hover {
+      transform: none;
+    }
+    &:focus {
+      transform: none;
+    }
+  }
+`;
 
 const Header = () => {
   const [click, setClick] = useState(false); 
@@ -197,7 +220,10 @@ const Header = () => {
     setClick(!click);
     scrollUp(id, e);
   };
-
+const handleLogin = ()=>{
+  window.location.href =
+    'https://auth.markethealers.com/src/AuthPage/login.html';
+}
   useEffect(() => {
     const element = ref.current;
 
@@ -273,7 +299,14 @@ const Header = () => {
           <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
             Contact Us
           </a>
-          {/* <a href="#"><Button>SignIn</Button></a> */}
+          <a href="#">
+            <Button
+              onClick={() => {
+                handleLogin();
+              }}>
+              Login
+            </Button>
+          </a>
         </Nav>
         <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
           <span></span>
@@ -288,7 +321,14 @@ const Header = () => {
           <a href="#contact" onClick={(e) => handleClick('contact', e)}>
             Contact Us
           </a>
-          {/* <a href="#"><Button>SignIn</Button></a> */}
+          <a href="#">
+            <Button
+              onClick={() => {
+                handleLogin();
+              }}>
+              Login
+            </Button>
+          </a>
         </MobileMenu>
       </Headers>
     </div>

@@ -141,11 +141,12 @@
   position: relative;
 }
 .char span:nth-child(5) {
-  margin-left: 5px;
+  margin-left: 0px;
 }
-.char.state-1 span:nth-child(5) {
-  margin-right: -3px;
+.char span:nth-child(7) {
+  margin-left: -10px;
 }
+ 
 .char.state-1 span {
   animation: charAppear 1.2s ease backwards calc(var(--i) * 0.03s);
 }
