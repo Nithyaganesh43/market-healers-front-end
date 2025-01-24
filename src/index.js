@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 import Contact from './components/Contact/index';
@@ -7,16 +7,40 @@ import { lazy, Suspense } from 'react';
 
 import { GlobalStyle } from './globalStyles';
 const Header = lazy(() => import('./components/Header/index'));
-const TermsAndConditions = lazy(() =>
-  import('./Pages/TermsAndConditions/index')
+const TermsAndConditions = lazy(() =>import('./Pages/TermsAndConditions/index')
 );
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
 
+const Home = lazy(() => import('./Pages/Home'));
 
+const RootApp = () => {
 
- const Home = lazy(() => import('./Pages/Home'));
+   useEffect(() => {
+     const checkAuth = async () => {
+        
+       try {
+         const response = await fetch(
+           'https://server.markethealers.com/markethealers/auth/authCheck',
+           {
+             method: 'GET',
+             credentials: 'include',
+           }
+         );
+         if (response.ok) { 
+          window.location.href =
+            'https://market-healers-main-front-end.vercel.app/';
+         } else {
+           console.error('Authentication failed:');
+         }
+       } catch (error) {
+         console.error('Failed to fetch auth');
+       } 
+     };
+     checkAuth();
+   }, []);
 
-const RootApp = () => (
+  
+  return (
   <>
     <Suspense fallback={null}>
       <GlobalStyle /> 
@@ -24,7 +48,7 @@ const RootApp = () => (
       <Contact />
     </Suspense>
   </>
-);
+)};
 
 const appRouter = createBrowserRouter([
   {
