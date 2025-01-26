@@ -321,7 +321,7 @@ const handleLogin = ()=>{
           <a href="#contact" onClick={(e) => handleClick('contact', e)}>
             Contact Us
           </a>
-          <a href="#">
+          <a >
             <Button
               onClick={() => {
                 handleLogin();

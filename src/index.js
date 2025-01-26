@@ -19,13 +19,13 @@ const RootApp = () => {
   //    const checkAuth = async () => {
         
   //      try {
-  //        const response = await fetch(
-  //          'https://server.markethealers.com/markethealers/auth/authCheck',
-  //          {
-  //            method: 'GET',
-  //            credentials: 'include',
-  //          }
-  //        );
+        //  const response = await fetch(
+        //    'https://server.markethealers.com/markethealers/auth/authCheck',
+        //    {
+        //      method: 'GET',
+        //      credentials: 'include',
+        //    }
+        //  );
   //        if (response.ok) { 
   //         window.location.href =
   //           'https://market-healers-main-front-end.vercel.app/';
