@@ -60,7 +60,6 @@ const Logo = styled.a`
 
 const Nav = styled.nav`
   width: 35rem;
-  background-color: rgb(32, 32, 32);
   max-width: 40rem;
   display: flex;
   align-items: center;
@@ -74,23 +73,10 @@ const Nav = styled.nav`
   a {
     font-weight: 600;
     line-height: 1.5;
-    background-color: rgb(32, 32, 32);
     color: var(--white);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    &::after {
-      content: '';
-      display: block;
-      height: 3px;
-      width: 0;
-      background: transparent;
-      transition: width 0.5s;
-    }
-    &:not(:last-child):hover::after {
-      width: 100%;
-      background: var(--purple);
-    }
     &:hover {
       color: var(--purple);
       transform: scale(1.05);
@@ -149,23 +135,10 @@ const MobileMenu = styled.nav`
   a {
     font-weight: 600;
     font-size: 1.3rem;
-    line-height: 1.5;
     color: var(--white);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    &::after {
-      content: '';
-      display: block;
-      height: 3px;
-      width: 0;
-      background: transparent;
-      transition: width 0.5s;
-    }
-    &:not(:last-child):hover::after {
-      width: 100%;
-      background: var(--purple);
-    }
     &:hover {
       color: var(--purple);
       transform: scale(1.05);
@@ -175,6 +148,7 @@ const MobileMenu = styled.nav`
     display: none;
   }
 `;
+
 const Button = styled.button`
   background-color: var(--purple);
   padding: 0.5rem 1rem;
@@ -191,9 +165,7 @@ const Button = styled.button`
   }
   @media only Screen and (max-width: 40em) {
     font-size: 1.2rem;
-    &:hover {
-      transform: none;
-    }
+    &:hover,
     &:focus {
       transform: none;
     }
@@ -216,15 +188,13 @@ const Header = () => {
     });
   };
 
-  const handleClick = (id, e) => {
-    setClick(!click);
-    scrollUp(id, e);
-  };
   const handleLogin = (e) => {
     e.preventDefault();
+    console.log('Login button clicked');
     window.location.href =
       'https://auth.markethealers.com/src/AuthPage/login.html';
   };
+
   const handleSignup = () => {
     window.location.href =
       'https://auth.markethealers.com/src/AuthPage/signup.html';
@@ -242,14 +212,10 @@ const Header = () => {
         left: '0',
         right: '0',
         padding: '1rem 2.5rem',
-
         borderRadius: '0 0 50px 50px',
-
         border: '2px solid var(--white)',
-
         duration: 1,
         ease: 'power1.out',
-
         scrollTrigger: {
           trigger: element,
           start: 'bottom+=200 top',
@@ -264,14 +230,10 @@ const Header = () => {
         left: '3rem',
         right: '3rem',
         padding: '1.5rem 2rem',
-
         borderRadius: '50px',
-
         border: '3px solid var(--white)',
-
         duration: 1,
         ease: 'power1.out',
-
         scrollTrigger: {
           trigger: element,
           start: 'bottom+=300 top',
@@ -284,17 +246,14 @@ const Header = () => {
 
   return (
     <div id="home">
-      <Headers ref={ref} id="home">
+      <Headers ref={ref}>
         <Logo>
           <img
-            src={
-              'https://res.cloudinary.com/dptf0mrro/image/upload/v1735920388/MH__1_1_pjlq6u.png'
-            }
+            src="https://res.cloudinary.com/dptf0mrro/image/upload/v1735920388/MH__1_1_pjlq6u.png"
             alt="Market Healers"
           />
           <h3>Market Healers</h3>
         </Logo>
-
         <Nav>
           <a href="#home" onClick={(e) => scrollUp('home', e)}>
             Home
@@ -305,45 +264,22 @@ const Header = () => {
           <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
             Contact Us
           </a>
-          <Button
-            onClick={() => {
-              handleSignup();
-            }}>
-            SignUp
-          </Button> 
-            <Button
-              onClick={(event) => {
-                handleLogin();
-              }}>
-              Login
-            </Button>
-           
+          <Button onClick={handleSignup}>SignUp</Button>
+          <Button onClick={handleLogin}>Login</Button>
         </Nav>
-        <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
-          <span></span>
-        </HamburgerBtn>
-        <MobileMenu clicked={+click}>
-          <a href="#home" onClick={(e) => handleClick('home', e)}>
+        <HamburgerBtn clicked={click} onClick={() => setClick(!click)} />
+        <MobileMenu clicked={click}>
+          <a href="#home" onClick={(e) => scrollUp('home', e)}>
             Home
           </a>
-          <a href="#about" onClick={(e) => handleClick('about', e)}>
+          <a href="#about" onClick={(e) => scrollUp('about', e)}>
             About Us
           </a>
-          <a href="#contact" onClick={(e) => handleClick('contact', e)}>
+          <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
             Contact Us
-          </a> 
-            <Button
-              onClick={() => {
-                handleSignup();
-              }}>
-              SignUp
-            </Button>{' '}
-            <Button
-              onClick={() => {
-                handleLogin();
-              }}>
-              Login
-            </Button> 
+          </a>
+          <Button onClick={handleSignup}>SignUp</Button>
+          <Button onClick={handleLogin}>Login</Button>
         </MobileMenu>
       </Headers>
     </div>
