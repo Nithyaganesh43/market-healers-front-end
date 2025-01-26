@@ -310,15 +310,14 @@ const Header = () => {
               handleSignup();
             }}>
             SignUp
-          </Button>
-          <a href="">
+          </Button> 
             <Button
               onClick={(event) => {
                 handleLogin();
               }}>
               Login
             </Button>
-          </a>
+           
         </Nav>
         <HamburgerBtn clicked={+click} onClick={() => setClick(!click)}>
           <span></span>
@@ -332,8 +331,7 @@ const Header = () => {
           </a>
           <a href="#contact" onClick={(e) => handleClick('contact', e)}>
             Contact Us
-          </a>
-          <a>
+          </a> 
             <Button
               onClick={() => {
                 handleSignup();
@@ -345,8 +343,7 @@ const Header = () => {
                 handleLogin();
               }}>
               Login
-            </Button>
-          </a>
+            </Button> 
         </MobileMenu>
       </Headers>
     </div>
