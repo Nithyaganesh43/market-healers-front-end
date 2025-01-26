@@ -15,8 +15,6 @@ const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
 const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => {
-  const [isAuthenticated, setIsAuthenticated] = React.useState(null);
-
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -29,21 +27,19 @@ const RootApp = () => {
         );
 
         if (response.ok) {
-          toast('Logged in successfully');
-          setIsAuthenticated(true);
+          console.log('success');
+          toast.success('Successfully Logged In');
         } else {
-          setIsAuthenticated(false);
+          console.log('failed');
+          toast.error('Welcome To Join, Please Signup');
         }
       } catch (error) {
         console.error('Error checking auth:', error);
-        setIsAuthenticated(false);
       }
     };
 
     checkAuth();
   }, []);
-
-  if (isAuthenticated === null) return null;
 
   return (
     <>
@@ -51,8 +47,8 @@ const RootApp = () => {
       <Suspense fallback={null}>
         <Outlet />
         <Contact />
-        <ToastContainer />
       </Suspense>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
 };
