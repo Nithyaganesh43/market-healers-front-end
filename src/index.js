@@ -26,15 +26,14 @@ const RootApp = () => {
           }
         );
 
-        if (response.ok) {
-          console.log('success');
+        if (response.ok) { 
           toast.success('Successfully Logged In');
         } else {
           console.log('failed');
-          toast.error('Welcome To Join, Please Signup');
+          toast.success('Welcome To Join, Please Signup');
         }
       } catch (error) {
-        console.error('Error checking auth:', error);
+        console.error('Error checking auth:');
       }
     };
 
