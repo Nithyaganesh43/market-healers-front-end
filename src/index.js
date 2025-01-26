@@ -15,29 +15,24 @@ const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => {
 
-  //  useEffect(() => {
-  //    const checkAuth = async () => {
-        
-  //      try {
-        //  const response = await fetch(
-        //    'https://server.markethealers.com/markethealers/auth/authCheck',
-        //    {
-        //      method: 'GET',
-        //      credentials: 'include',
-        //    }
-        //  );
-  //        if (response.ok) { 
-  //         window.location.href =
-  //           'https://market-healers-main-front-end.vercel.app/';
-  //        } else {
-  //          console.error('Authentication failed:');
-  //        }
-  //      } catch (error) {
-  //        console.error('Failed to fetch auth');
-  //      } 
-  //    };
-  //    checkAuth();
-  //  }, []);
+   useEffect(() => {
+     const checkAuth = async () => {
+       try {
+         const response = await fetch(
+           'https://server.markethealers.com/markethealers/auth/authCheck',
+           { redirect: 'manual' } 
+         ); 
+         if (response.ok) { 
+           console.log('loggedIn' );
+         } else {
+           console.error('Authentication failed');
+         }
+       } catch (error) {
+         console.error('Failed to fetch auth', error);
+       }
+     };
+     checkAuth();
+   }, []);
 
   
   return (

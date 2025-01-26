@@ -116,9 +116,9 @@ const SubText = styled.h5`
 
 const HeroSection = () => {
    const handleClick = () => {
-    //  window.location.href=(
-    //    'https://auth.markethealers.com/src/AuthPage/signup.html' 
-    //  );
+     window.location.href=(
+       'https://auth.markethealers.com/src/AuthPage/signup.html' 
+     );
 };
 
   return (
@@ -183,14 +183,13 @@ const HeroSection = () => {
                   <span data-label="n" style={{ '--i': 4 }}>
                     n
                   </span>
-                  <span data-label="N" style={{ '--i': 5 }}>
-                    N
+                  <span data-label="U" style={{ '--i': 5 }}>
+                    U
                   </span>
-                  <span data-label="o" style={{ '--i': 6 }}>
-                    o
+                  <span data-label="p" style={{ '--i': 6 }}>
+                    p
                   </span>
-                  <span data-label="w" style={{ '--i': 7 }}>
-                    w
+                  <span data-label="" style={{ '--i': 7 }}> 
                   </span>
                 </span>
               </div>
