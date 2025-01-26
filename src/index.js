@@ -13,8 +13,10 @@ const TermsAndConditions = lazy(() =>
 );
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
 const Home = lazy(() => import('./Pages/Home'));
+
 const RootApp = () => {
   const [isAuthenticated, setIsAuthenticated] = React.useState(null);
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
@@ -27,10 +29,9 @@ const RootApp = () => {
         );
 
         if (response.ok) {
-          console.log("ok")
+          toast('Logged in successfully');
           setIsAuthenticated(true);
         } else {
-          console.log("not OK")
           setIsAuthenticated(false);
         }
       } catch (error) {
@@ -42,14 +43,12 @@ const RootApp = () => {
     checkAuth();
   }, []);
 
-  if (isAuthenticated === null) {
-    return <div> </div>;
-  }
+  if (isAuthenticated === null) return null;
 
   return (
     <>
       <GlobalStyle />
-      <Suspense fallback={<div> </div>}>
+      <Suspense fallback={null}>
         <Outlet />
         <Contact />
         <ToastContainer />
