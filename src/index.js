@@ -1,49 +1,62 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, lazy, Suspense } from 'react';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-
-import Contact from './components/Contact/index';
+import { toast, ToastContainer } from 'react-toastify';
 import ReactDOM from 'react-dom/client';
-import { lazy, Suspense } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { GlobalStyle } from './globalStyles';
+import Contact from './components/Contact/index';
+
 const Header = lazy(() => import('./components/Header/index'));
-const TermsAndConditions = lazy(() =>import('./Pages/TermsAndConditions/index')
+const TermsAndConditions = lazy(() =>
+  import('./Pages/TermsAndConditions/index')
 );
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
-
 const Home = lazy(() => import('./Pages/Home'));
-
 const RootApp = () => {
+  const [isAuthenticated, setIsAuthenticated] = React.useState(null);
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(
+          'https://server.markethealers.com/markethealers/auth/authCheck',
+          {
+            method: 'GET',
+            credentials: 'include',
+          }
+        );
 
-   useEffect(() => {
-     const checkAuth = async () => {
-       try {
-         const response = await fetch(
-           'https://server.markethealers.com/markethealers/auth/authCheck',
-           { redirect: 'manual' } 
-         ); 
-         if (response.ok) { 
-           console.log('loggedIn' );
-         } else {
-           console.error('Authentication failed');
-         }
-       } catch (error) {
-         console.error('Failed to fetch auth', error);
-       }
-     };
-     checkAuth();
-   }, []);
+        if (response.ok) {
+          console.log("ok")
+          setIsAuthenticated(true);
+        } else {
+          console.log("not OK")
+          setIsAuthenticated(false);
+        }
+      } catch (error) {
+        console.error('Error checking auth:', error);
+        setIsAuthenticated(false);
+      }
+    };
 
-  
+    checkAuth();
+  }, []);
+
+  if (isAuthenticated === null) {
+    return <div> </div>;
+  }
+
   return (
-  <>
-    <Suspense fallback={null}>
-      <GlobalStyle /> 
-      <Outlet />
-      <Contact />
-    </Suspense>
-  </>
-)};
+    <>
+      <GlobalStyle />
+      <Suspense fallback={<div> </div>}>
+        <Outlet />
+        <Contact />
+        <ToastContainer />
+      </Suspense>
+    </>
+  );
+};
 
 const appRouter = createBrowserRouter([
   {
@@ -52,19 +65,28 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: [ <Header />,<Home />],
+        element: (
+          <>
+            <Header />
+            <Home />
+          </>
+        ),
       },
       {
-        path: '/termsofservice',
-        element: [<TermsAndConditions />],
+        path: '/terms-of-service',
+        element: <TermsAndConditions />,
       },
       {
-        path: '/PrivacyPolicy',
-        element: [<PrivacyPolicy />],
+        path: '/privacy-policy',
+        element: <PrivacyPolicy />,
       },
     ],
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<RouterProvider router={appRouter} />);
+root.render(
+  <React.StrictMode>
+    <RouterProvider router={appRouter} />
+  </React.StrictMode>
+);

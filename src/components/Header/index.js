@@ -278,8 +278,13 @@ const Header = () => {
           <a href="#contact" onClick={(e) => scrollUp('contact', e)}>
             Contact Us
           </a>
-          <Button onClick={handleSignup}>SignUp</Button>
-          <Button onClick={handleLogin}>Login</Button>
+          <a>
+            {' '}
+            <Button onClick={handleSignup}>SignUp</Button>
+          </a>
+          <a>
+            <Button onClick={handleLogin}>Login</Button>
+          </a>{' '}
         </MobileMenu>
       </Headers>
     </div>
