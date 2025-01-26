@@ -67,11 +67,11 @@ const appRouter = createBrowserRouter([
         ),
       },
       {
-        path: '/terms-of-service',
+        path: '/termsofservice',
         element: <TermsAndConditions />,
       },
       {
-        path: '/privacy-policy',
+        path: '/privacypolicy',
         element: <PrivacyPolicy />,
       },
     ],
