@@ -220,7 +220,8 @@ const Header = () => {
     setClick(!click);
     scrollUp(id, e);
   };
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     window.location.href =
       'https://auth.markethealers.com/src/AuthPage/login.html';
   };
@@ -312,7 +313,7 @@ const Header = () => {
           </Button>
           <a href="">
             <Button
-              onClick={() => {
+              onClick={(event) => {
                 handleLogin();
               }}>
               Login
