@@ -72,7 +72,7 @@ const Testimonials = () => {
    const settings = {
      dots: true,
      infinite: true,
-     speed: 5000,
+     speed: 1000,
      slidesToShow: 1,
      slidesToScroll: 1,
      autoplay: true,
