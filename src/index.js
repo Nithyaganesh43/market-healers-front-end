@@ -30,7 +30,7 @@ const RootApp = () => {
           toast.success('Successfully Logged In');
         } else {
           console.log('failed');
-          toast.success('Welcome To Join, Please Signup');
+          toast.success('Welcome To Market Healers. SignUp and Heal Your Finance Life Here');
         }
       } catch (error) {
         console.error('Error checking auth:');
