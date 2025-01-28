@@ -57,11 +57,11 @@ const RootApp = () => {
 
 const appRouter = createBrowserRouter([
   {
-    path: '/home',
+    path: '/',
     element: <RootApp />,
     children: [
       {
-        path: '/home',
+        path: '/',
         element: (
           <>
             <Header />

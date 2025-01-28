@@ -99,8 +99,7 @@ const CookiePopup = () => {
     setTimeout(() => setVisible(false), 500);
   };
 
-  const acceptSome = () => {
-    alert('Customize your cookie preferences.');
+  const acceptSome = () => { 
     setTimeout(() => setVisible(false), 500);
   };
 
