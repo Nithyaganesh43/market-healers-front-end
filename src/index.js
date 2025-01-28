@@ -3,49 +3,52 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import ReactDOM from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
+import CookiePopup from './components/CookiePopUp';
+import { GlobalStyle } from './globalStyles';
+import Contact from './components/Contact/index';
 
-// import { GlobalStyle } from './globalStyles';
-// import Contact from './components/Contact/index';
-
-// const Header = lazy(() => import('./components/Header/index'));
+const Header = lazy(() => import('./components/Header/index'));
 const TermsAndConditions = lazy(() =>
   import('./Pages/TermsAndConditions/index')
 );
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
-// const Home = lazy(() => import('./Pages/Home'));
+const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => {
-  // useEffect(() => {
-  //   const checkAuth = async () => {
-  //     try {
-  //       const response = await fetch(
-  //         'https://server.markethealers.com/markethealers/auth/authCheck',
-  //         {
-  //           method: 'GET',
-  //           credentials: 'include',
-  //         }
-  //       );
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(
+          'https://server.markethealers.com/markethealers/auth/authCheck',
+          {
+            method: 'GET',
+            credentials: 'include',
+          }
+        );
 
-  //       if (response.ok) { 
-  //         toast.success('Successfully Logged In');
-  //       } else {
-  //         console.log('failed');
-  //         toast.success('Welcome To Market Healers. SignUp and Heal Your Finance Life Here');
-  //       }
-  //     } catch (error) {
-  //       console.error('Error checking auth:');
-  //     }
-  //   };
+        if (response.ok) {
+          toast.success(
+            'Happy To see You Again. LogIn and Heal Your Finance Life Here'
+          );
+        } else {
+          toast.success(
+            'Welcome To Market Healers. SignUp and Heal Your Finance Life Here'
+          );
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-  //   checkAuth();
-  // }, []);
+    checkAuth();
+  }, []);
 
   return (
     <>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
       <Suspense fallback={null}>
         <Outlet />
-        {/* <Contact /> */}
+        <Contact />
       </Suspense>
       <ToastContainer position="top-right" autoClose={3000} />
     </>
@@ -54,16 +57,16 @@ const RootApp = () => {
 
 const appRouter = createBrowserRouter([
   {
-    path: '/',
+    path: '/home',
     element: <RootApp />,
     children: [
       {
-        path: '/',
+        path: '/home',
         element: (
           <>
-          <h1>Coming Soon...</h1>
-            {/* <Header />
-            <Home /> */}
+            <Header />
+            <CookiePopup />
+            <Home />
           </>
         ),
       },
