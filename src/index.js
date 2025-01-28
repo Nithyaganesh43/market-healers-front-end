@@ -45,7 +45,7 @@ const RootApp = () => {
       <GlobalStyle />
       <Suspense fallback={null}>
         <Outlet />
-        <Contact />
+        {/* <Contact /> */}
       </Suspense>
       <ToastContainer position="top-right" autoClose={3000} />
     </>
@@ -61,8 +61,9 @@ const appRouter = createBrowserRouter([
         path: '/',
         element: (
           <>
-            <Header />
-            <Home />
+          <h1>Coming Soon...</h1>
+            {/* <Header />
+            <Home /> */}
           </>
         ),
       },
