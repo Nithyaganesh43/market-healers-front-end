@@ -15,30 +15,30 @@ const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
 const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => {
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await fetch(
-          'https://server.markethealers.com/markethealers/auth/authCheck',
-          {
-            method: 'GET',
-            credentials: 'include',
-          }
-        );
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         'https://server.markethealers.com/markethealers/auth/authCheck',
+  //         {
+  //           method: 'GET',
+  //           credentials: 'include',
+  //         }
+  //       );
 
-        if (response.ok) { 
-          toast.success('Successfully Logged In');
-        } else {
-          console.log('failed');
-          toast.success('Welcome To Market Healers. SignUp and Heal Your Finance Life Here');
-        }
-      } catch (error) {
-        console.error('Error checking auth:');
-      }
-    };
+  //       if (response.ok) { 
+  //         toast.success('Successfully Logged In');
+  //       } else {
+  //         console.log('failed');
+  //         toast.success('Welcome To Market Healers. SignUp and Heal Your Finance Life Here');
+  //       }
+  //     } catch (error) {
+  //       console.error('Error checking auth:');
+  //     }
+  //   };
 
-    checkAuth();
-  }, []);
+  //   checkAuth();
+  // }, []);
 
   return (
     <>
