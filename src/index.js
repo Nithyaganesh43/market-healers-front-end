@@ -4,15 +4,15 @@ import { toast, ToastContainer } from 'react-toastify';
 import ReactDOM from 'react-dom/client';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { GlobalStyle } from './globalStyles';
-import Contact from './components/Contact/index';
+// import { GlobalStyle } from './globalStyles';
+// import Contact from './components/Contact/index';
 
-const Header = lazy(() => import('./components/Header/index'));
+// const Header = lazy(() => import('./components/Header/index'));
 const TermsAndConditions = lazy(() =>
   import('./Pages/TermsAndConditions/index')
 );
 const PrivacyPolicy = lazy(() => import('./Pages/PrivacyPolicy/index'));
-const Home = lazy(() => import('./Pages/Home'));
+// const Home = lazy(() => import('./Pages/Home'));
 
 const RootApp = () => {
   // useEffect(() => {
