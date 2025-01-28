@@ -42,7 +42,7 @@ const RootApp = () => {
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Suspense fallback={null}>
         <Outlet />
         {/* <Contact /> */}
