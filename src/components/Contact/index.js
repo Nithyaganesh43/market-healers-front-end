@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import './btn.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from 'react';
 
 const ContactSection = styled.section`
   overflow: hidden;
@@ -121,6 +122,27 @@ const Row = styled.div`
   }
 `;
 const Contact = () => {
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch(
+          'https://server.markethealers.com/markethealers/getUserInfo',
+          {
+            method: 'GET',
+            credentials: 'include',
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+
+          document.getElementById('email').value = data.fullName;
+          document.getElementById('name').value = data.email;
+        }
+      } catch (error) {}
+    };
+    checkAuth();
+  }, []);
   async function handleClick(e) {
     e.preventDefault();
 
@@ -252,5 +274,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
