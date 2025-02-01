@@ -32,7 +32,7 @@ const RootApp = () => {
           );
         } else {
           toast.success(
-            'Welcome To Market Healers. SignUp and Heal Your Finance Life Here'
+            'Welcome To Market Healers. SignUp/Login and Heal Your Finance Life Here'
           );
         }
       } catch (error) {
