@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CookiePopup from './components/CookiePopUp';
 import { GlobalStyle } from './globalStyles';
 import Contact from './components/Contact/index';
-
+import Footer from './components/Footer/index';
 const Header = lazy(() => import('./components/Header/index'));
 const TermsAndConditions = lazy(() =>
   import('./Pages/TermsAndConditions/index')
@@ -49,6 +49,7 @@ const RootApp = () => {
       <Suspense fallback={null}>
         <Outlet />
         <Contact />
+        <Footer/>
       </Suspense>
       <ToastContainer position="top-right" autoClose={3000} />
     </>
